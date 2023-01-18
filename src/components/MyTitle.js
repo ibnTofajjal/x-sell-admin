@@ -15,6 +15,7 @@ export default MyTitle;
 const styles = StyleSheet.create({
   titleContainer: {
     backgroundColor: Colors.white,
+    alignSelf: "center",
     marginTop: 20,
     marginBottom: 10,
     width: "90%",
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
   },
   title: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
     color: "#000",
   },
