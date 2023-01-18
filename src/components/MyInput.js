@@ -8,16 +8,17 @@ const MyInput = ({
   autoCapitalize,
   multiline,
   value,
+  customStyle,
 }) => {
   return (
     <TextInput
       placeholder={placeholder}
       secureTextEntry={secureTextEntry}
-      style={styles.inputStyle}
       onChangeText={onChangeText}
       autoCapitalize={autoCapitalize}
       multiline={multiline}
       value={value}
+      style={[styles.inputStyle, customStyle]}
     />
   );
 };

@@ -6,6 +6,7 @@ const MyButton = ({ title, onPress, customStyle }) => {
     <TouchableOpacity
       style={[styles.buttonStyle, customStyle]}
       onPress={onPress}
+      android_ripple={{ color: "#fff" }}
     >
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
