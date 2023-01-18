@@ -1,7 +1,12 @@
 export const Colors = {
-  paste: "#c6ffdd",
-  cream: "#fbd786",
-  snow: "#f7797d",
+  // Gradient colors
+  g1: "#c6ffdd",
+  g2: "#fbd786",
+  g3: "#f7797d",
+  g4: "#FFDEE9",
+  g4: "#B5FFFC",
+
+  // Solid colors
   white: "#ffffff",
   black: "#000000",
   gray: "#808080",
@@ -17,10 +22,14 @@ export const Colors = {
   pink: "#ffc0cb",
   cyan: "#00ffff",
   magenta: "#ff00ff",
+  lightGreen: "#00CC66",
+
+  // Transparent colors
   transparent: "transparent",
   lightTransparent: "rgba(255, 255, 255, 0.3)",
   darkTransparent: "rgba(0, 0, 0, 0.3)",
 
+  // Social colors
   facebook: "#3b5998",
   google: "#dd4b39",
   twitter: "#00aced",

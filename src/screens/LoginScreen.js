@@ -6,10 +6,10 @@ import MyButton from "../components/MyButton";
 import { Colors } from "../ui/Theme";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
     <LinearGradient
-      colors={[Colors.paste, Colors.cream, Colors.snow]}
+      colors={[Colors.g1, Colors.g2, Colors.g3]}
       style={{ flex: 1 }}
     >
       <SafeAreaView>
@@ -18,7 +18,6 @@ const LoginScreen = () => {
           style={styles.imageStyle}
           resizeMode="contain"
         />
-
         <View>
           <MyInput
             placeholder={"Enter Your Email"}
@@ -31,6 +30,14 @@ const LoginScreen = () => {
           />
           <MyButton title={"Login"} customStyle={styles.buttonStyle} />
         </View>
+
+        {/* // Test the navigation to AddScreen */}
+        <Text
+          onPress={() => navigation.navigate("AddScreen")}
+          style={{ alignSelf: "center", marginTop: 20 }}
+        >
+          ADD SCREEN
+        </Text>
       </SafeAreaView>
     </LinearGradient>
   );
@@ -52,11 +59,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 3,
     elevation: 3,
     shadowColor: "black",
-    shadowOpacity: 1.25,
+    shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
   },
   buttonStyle: {
     alignSelf: "center",
+    color: Colors.white,
     marginTop: 20,
     borderWidth: 3,
     borderColor: Colors.lightTransparent,

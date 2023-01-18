@@ -2,10 +2,13 @@ import * as React from "react";
 import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./src/screens/HomeScreen";
-import LoginScreen from "./src/screens/LoginScreen";
 
-import { Colors } from "./src/ui/Theme";
+import AddShopScreen from "./src/screens/AddShop";
+import LoginScreen from "./src/screens/LoginScreen";
+import AddProductScreen from "./src/screens/AddProduct";
+import AddScreen from "./src/screens/AddScreen";
+import AvailableStockScreen from "./src/screens/AvailableStockScreen";
+import StockHistoryScreen from "./src/screens/StockHistoryScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +17,17 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="AddScreen" component={AddScreen} />
+        <Stack.Screen name="AddShopScreen" component={AddShopScreen} />
+        <Stack.Screen name="AddProductScreen" component={AddProductScreen} />
+        <Stack.Screen
+          name="AvailableStockScreen"
+          component={AvailableStockScreen}
+        />
+        <Stack.Screen
+          name="StockHistoryScreen"
+          component={StockHistoryScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
