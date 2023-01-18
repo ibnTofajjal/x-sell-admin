@@ -23,7 +23,8 @@ const AddScreen = ({ navigation }) => {
                 style={styles.imageStyle}
               />
               <MyButton
-                customStyle={styles.titleText}
+                customTextStyle={{ color: "black" }}
+                customStyle={styles.titleContainer}
                 title={"Add Store"}
                 onPress={() => navigation.navigate("AddShopScreen")}
               />
@@ -35,7 +36,8 @@ const AddScreen = ({ navigation }) => {
                 style={styles.imageStyle}
               />
               <MyButton
-                customStyle={styles.titleText}
+                customTextStyle={{ color: "black" }}
+                customStyle={styles.titleContainer}
                 title={"Add Product"}
                 onPress={() => navigation.navigate("AddProductScreen")}
               />
@@ -47,7 +49,8 @@ const AddScreen = ({ navigation }) => {
                 style={styles.imageStyle}
               />
               <MyButton
-                customStyle={styles.titleText}
+                customTextStyle={{ color: "black" }}
+                customStyle={styles.titleContainer}
                 title={"Available Stock"}
                 onPress={() => navigation.navigate("AvailableStockScreen")}
               />
@@ -59,7 +62,8 @@ const AddScreen = ({ navigation }) => {
                 style={styles.imageStyle}
               />
               <MyButton
-                customStyle={styles.titleText}
+                customTextStyle={{ color: "black" }}
+                customStyle={styles.titleContainer}
                 title={"Stock History"}
                 onPress={() => navigation.navigate("StockHistoryScreen")}
               />
@@ -101,14 +105,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 
-  titleText: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "#000",
-    textAlign: "center",
-    marginTop: 20,
+  titleContainer: {
     backgroundColor: Colors.white,
-    padding: 10,
-    borderRadius: 10,
+    borderRadius: 15,
   },
 });

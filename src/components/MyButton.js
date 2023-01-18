@@ -2,14 +2,14 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Colors } from "../ui/Theme";
 
-const MyButton = ({ title, onPress, customStyle }) => {
+const MyButton = ({ title, onPress, customStyle, customTextStyle }) => {
   return (
     <TouchableOpacity
       style={[styles.buttonStyle, customStyle]}
       onPress={onPress}
       android_ripple={{ color: "#fff" }}
     >
-      <Text style={styles.title}>{title}</Text>
+      <Text style={[styles.title, customTextStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: "bold",
-    // color: "#fff",
+    color: "#fff",
   },
 });

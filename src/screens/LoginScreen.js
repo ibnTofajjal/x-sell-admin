@@ -28,16 +28,12 @@ const LoginScreen = ({ navigation }) => {
             customStyle={styles.inputStyle}
             secureTextEntry={true}
           />
-          <MyButton title={"Login"} customStyle={styles.buttonStyle} />
+          <MyButton
+            title={"Login"}
+            customStyle={styles.buttonStyle}
+            onPress={() => navigation.navigate("AddScreen")}
+          />
         </View>
-
-        {/* // Test the navigation to AddScreen */}
-        <Text
-          onPress={() => navigation.navigate("AddScreen")}
-          style={{ alignSelf: "center", marginTop: 20 }}
-        >
-          ADD SCREEN
-        </Text>
       </SafeAreaView>
     </LinearGradient>
   );
@@ -54,6 +50,7 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     marginHorizontal: 50,
+    height: 60,
     backgroundColor: Colors.white,
     paddingHorizontal: 15,
     borderBottomWidth: 3,
