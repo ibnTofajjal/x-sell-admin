@@ -26,6 +26,7 @@ const AddProductScreen = () => {
                   width: 250,
                   alignSelf: "center",
                   marginBottom: 20,
+                  marginTop: 20,
                 }}
               />
               <MyInput
@@ -38,7 +39,11 @@ const AddProductScreen = () => {
               />
               <MyInput placeholder={"Code"} customStyle={styles.inputStyle} />
             </View>
-            <MyButton title={"Add Product"} customStyle={styles.buttonStyle} />
+            <MyButton
+              title={"Add Product"}
+              customStyle={styles.buttonStyle}
+              customTextStyle={{ color: Colors.black }}
+            />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     alignSelf: "center",
     height: 50,
-    backgroundColor: "#3A3F46",
+    backgroundColor: "#FFD777",
     borderRadius: 10,
     elevation: 3,
     shadowColor: "black",
