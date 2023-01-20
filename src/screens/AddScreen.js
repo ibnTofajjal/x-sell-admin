@@ -1,4 +1,11 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React from "react";
 // import { BlurView } from "@react-native-community/blur";
 import { LinearGradient } from "expo-linear-gradient";
@@ -14,62 +21,76 @@ const AddScreen = ({ navigation }) => {
       style={{ flex: 1 }}
     >
       <SafeAreaView>
-        <View style={styles.container}>
-          <MyTitle title={"What's On Your Mind?"} />
-          <View style={styles.categoriesContainer}>
-            <Pressable style={styles.elementsContainer}>
-              <Image
-                source={require("../../assets/images/store.png")}
-                style={styles.imageStyle}
-              />
-              <MyButton
-                customTextStyle={{ color: "black" }}
-                customStyle={styles.titleContainer}
-                title={"Add Store"}
-                onPress={() => navigation.navigate("AddShopScreen")}
-              />
-            </Pressable>
+        <ScrollView>
+          <View style={styles.container}>
+            <MyTitle title={"What's On Your Mind?"} />
+            <View style={styles.categoriesContainer}>
+              <Pressable style={styles.elementsContainer}>
+                <Image
+                  source={require("../../assets/images/store.png")}
+                  style={styles.imageStyle}
+                />
+                <MyButton
+                  customTextStyle={{ color: "black" }}
+                  customStyle={styles.titleContainer}
+                  title={"Add Store"}
+                  onPress={() => navigation.navigate("AddShopScreen")}
+                />
+              </Pressable>
 
-            <Pressable style={styles.elementsContainer}>
-              <Image
-                source={require("../../assets/images/Product.png")}
-                style={styles.imageStyle}
-              />
-              <MyButton
-                customTextStyle={{ color: "black" }}
-                customStyle={styles.titleContainer}
-                title={"Add Product"}
-                onPress={() => navigation.navigate("AddProductScreen")}
-              />
-            </Pressable>
+              <Pressable style={styles.elementsContainer}>
+                <Image
+                  source={require("../../assets/images/Product.png")}
+                  style={styles.imageStyle}
+                />
+                <MyButton
+                  customTextStyle={{ color: "black" }}
+                  customStyle={styles.titleContainer}
+                  title={"Add Product"}
+                  onPress={() => navigation.navigate("AddProductScreen")}
+                />
+              </Pressable>
 
-            <Pressable style={styles.elementsContainer}>
-              <Image
-                source={require("../../assets/images/stock.png")}
-                style={styles.imageStyle}
-              />
-              <MyButton
-                customTextStyle={{ color: "black" }}
-                customStyle={styles.titleContainer}
-                title={"Available Stock"}
-                onPress={() => navigation.navigate("AvailableStockScreen")}
-              />
-            </Pressable>
+              <Pressable style={styles.elementsContainer}>
+                <Image
+                  source={require("../../assets/images/stock.png")}
+                  style={styles.imageStyle}
+                />
+                <MyButton
+                  customTextStyle={{ color: "black" }}
+                  customStyle={styles.titleContainer}
+                  title={"Available Stock"}
+                  onPress={() => navigation.navigate("AvailableStockScreen")}
+                />
+              </Pressable>
 
-            <Pressable style={styles.elementsContainer}>
-              <Image
-                source={require("../../assets/images/history.png")}
-                style={styles.imageStyle}
-              />
-              <MyButton
-                customTextStyle={{ color: "black" }}
-                customStyle={styles.titleContainer}
-                title={"Stock History"}
-                onPress={() => navigation.navigate("StockHistoryScreen")}
-              />
-            </Pressable>
+              <Pressable style={styles.elementsContainer}>
+                <Image
+                  source={require("../../assets/images/history.png")}
+                  style={styles.imageStyle}
+                />
+                <MyButton
+                  customTextStyle={{ color: "black" }}
+                  customStyle={styles.titleContainer}
+                  title={"Stock History"}
+                  onPress={() => navigation.navigate("StockHistoryScreen")}
+                />
+              </Pressable>
+              <Pressable style={styles.elementsContainer}>
+                <Image
+                  source={require("../../assets/images/addStock.png")}
+                  style={styles.imageStyle}
+                />
+                <MyButton
+                  customTextStyle={{ color: "black" }}
+                  customStyle={styles.titleContainer}
+                  title={"Add Stock"}
+                  onPress={() => navigation.navigate("AddStockScreen")}
+                />
+              </Pressable>
+            </View>
           </View>
-        </View>
+        </ScrollView>
       </SafeAreaView>
     </LinearGradient>
   );
