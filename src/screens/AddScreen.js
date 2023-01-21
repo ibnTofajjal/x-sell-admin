@@ -23,7 +23,7 @@ const AddScreen = ({ navigation }) => {
       <SafeAreaView>
         <ScrollView>
           <View style={styles.container}>
-            <MyTitle title={"What's On Your Mind?"} />
+            {/* <MyTitle title={"What's On Your Mind?"} /> */}
             <View style={styles.categoriesContainer}>
               <Pressable style={styles.elementsContainer}>
                 <Image

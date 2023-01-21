@@ -22,14 +22,16 @@ const AddStockScreen = () => {
         <MyTitle title={"Add Stock"} />
 
         <View style={styles.dropdownStyle}>
-          <DropDownPicker
-            open={open}
-            value={value}
-            items={items}
-            setOpen={setOpen}
-            setValue={setValue}
-            setItems={setItems}
-          />
+          <View>
+            <DropDownPicker
+              open={open}
+              value={value}
+              items={items}
+              setOpen={setOpen}
+              setValue={setValue}
+              setItems={setItems}
+            />
+          </View>
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -43,5 +45,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fafafa",
     width: 200,
     alignSelf: "center",
+    //
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
   },
 });
