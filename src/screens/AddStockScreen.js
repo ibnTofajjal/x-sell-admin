@@ -21,18 +21,7 @@ const AddStockScreen = () => {
       <SafeAreaView>
         <MyTitle title={"Add Stock"} />
 
-        <View style={styles.dropdownStyle}>
-          <View>
-            <DropDownPicker
-              open={open}
-              value={value}
-              items={items}
-              setOpen={setOpen}
-              setValue={setValue}
-              setItems={setItems}
-            />
-          </View>
-        </View>
+        <View style={styles.dropdownStyle}></View>
       </SafeAreaView>
     </LinearGradient>
   );
