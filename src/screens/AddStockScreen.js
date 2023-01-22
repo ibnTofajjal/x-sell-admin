@@ -5,8 +5,9 @@ import { LinearGradient } from "expo-linear-gradient";
 import DropDownPicker from "react-native-dropdown-picker";
 import MyTitle from "../components/MyTitle";
 import { Colors } from "../ui/Theme";
+import MyButton from "../components/MyButton";
 
-const AddStockScreen = () => {
+const AddStockScreen = ({ navigator }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -20,7 +21,10 @@ const AddStockScreen = () => {
     >
       <SafeAreaView>
         <MyTitle title={"Add Stock"} />
-
+        <MyButton
+          title={"Back To Home"}
+          onPress={navigator.navigate("AddScreen")}
+        />
         <View style={styles.dropdownStyle}></View>
       </SafeAreaView>
     </LinearGradient>
