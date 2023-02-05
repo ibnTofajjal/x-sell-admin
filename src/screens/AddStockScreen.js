@@ -7,13 +7,14 @@ import MyTitle from "../components/MyTitle";
 import { Colors } from "../ui/Theme";
 import MyButton from "../components/MyButton";
 
-const AddStockScreen = ({ navigator }) => {
+const AddStockScreen = ({ navigation }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
     { label: "Apple", value: "apple" },
     { label: "Banana", value: "banana" },
   ]);
+
   return (
     <LinearGradient
       colors={[Colors.g1, Colors.g2, Colors.g3]}
@@ -23,7 +24,7 @@ const AddStockScreen = ({ navigator }) => {
         <MyTitle title={"Add Stock"} />
         <MyButton
           title={"Back To Home"}
-          onPress={navigator.navigate("AddScreen")}
+          onPress={navigation.navigate("AddScreen")}
         />
         <View style={styles.dropdownStyle}></View>
       </SafeAreaView>

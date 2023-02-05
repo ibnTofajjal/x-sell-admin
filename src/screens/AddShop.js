@@ -17,7 +17,7 @@ const AddShopScreen = () => {
       <SafeAreaView>
         <ScrollView>
           <View style={styles.container}>
-            {/* <MyTitle title={"Add Store"} /> */}
+            <MyTitle title={"Add Store"} />
             <View>
               <Image
                 source={require("../../assets/images/store.png")}
