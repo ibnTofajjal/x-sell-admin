@@ -1,5 +1,5 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import MyTitle from "../components/MyTitle";
@@ -11,6 +11,7 @@ import MyButton from "../components/MyButton";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
 const AvailableStockScreen = () => {
+  const [date, setDate] = useState(new Date());
   return (
     <LinearGradient
       colors={[Colors.g1, Colors.g2, Colors.g3]}
