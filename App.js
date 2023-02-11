@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -22,6 +22,7 @@ function App() {
         <Stack.Screen name="AddShopScreen" component={AddShopScreen} />
         <Stack.Screen name="AddProductScreen" component={AddProductScreen} />
         <Stack.Screen name="AddStockScreen" component={AddStockScreen} />
+
         <Stack.Screen
           name="AvailableStockScreen"
           component={AvailableStockScreen}
@@ -36,5 +37,3 @@ function App() {
 }
 
 export default App;
-
-// https://snack.expo.dev/

@@ -7,12 +7,12 @@ import {
   View,
 } from "react-native";
 import React from "react";
-// import { BlurView } from "@react-native-community/blur";
+
 import { LinearGradient } from "expo-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Colors } from "../ui/Theme";
-import MyTitle from "../components/MyTitle";
 import MyButton from "../components/MyButton";
+import MyTitle from "../components/MyTitle";
 
 const AddScreen = ({ navigation }) => {
   return (
@@ -23,7 +23,6 @@ const AddScreen = ({ navigation }) => {
       <SafeAreaView>
         <ScrollView>
           <View style={styles.container}>
-            {/* <MyTitle title={"What's On Your Mind?"} /> */}
             <View style={styles.categoriesContainer}>
               <Pressable style={styles.elementsContainer}>
                 <Image
@@ -33,7 +32,7 @@ const AddScreen = ({ navigation }) => {
                 <MyButton
                   customTextStyle={{ color: "black" }}
                   customStyle={styles.titleContainer}
-                  title={"Add Store"}
+                  title={"Create Shop"}
                   onPress={() => navigation.navigate("AddShopScreen")}
                 />
               </Pressable>

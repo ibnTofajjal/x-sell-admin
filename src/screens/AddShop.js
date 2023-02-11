@@ -1,14 +1,46 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+
+import { Alert, Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
-import MyTitle from "../components/MyTitle";
-import AddComponent from "../components/AddComponent";
+
 import { Colors } from "../ui/Theme";
 import MyInput from "../components/MyInput";
 import MyButton from "../components/MyButton";
 
 const AddShopScreen = () => {
+  const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const createUser = async () => {
+    try {
+      const response = await fetch(
+        "http://173.82.175.143:3000/admin/create-user",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fullName,
+            username,
+            password,
+          }),
+        }
+      );
+
+      const result = await response.json();
+      if (result.status === "success") {
+        Alert.alert("Success", "User created successfully");
+      } else {
+        Alert.alert("Error", result.message);
+      }
+    } catch (error) {
+      Alert.alert("Error", error.message);
+    }
+  };
+
   return (
     <LinearGradient
       colors={[Colors.g1, Colors.g2, Colors.g3]}
@@ -17,22 +49,35 @@ const AddShopScreen = () => {
       <SafeAreaView>
         <ScrollView>
           <View style={styles.container}>
-            <MyTitle title={"Add Store"} />
             <View>
               <Image
                 source={require("../../assets/images/store.png")}
                 style={{ height: 300, width: 300, alignSelf: "center" }}
               />
               <MyInput
-                placeholder={"Enter Shop Name"}
+                placeholder={"Shop Name"}
                 customStyle={styles.inputStyle}
+                value={fullName}
+                onChangeText={(t) => setFullName(t)}
               />
               <MyInput
-                placeholder={"Store Password"}
+                placeholder={"Shop Username"}
                 customStyle={styles.inputStyle}
+                value={username}
+                onChangeText={(t) => setUsername(t)}
+              />
+              <MyInput
+                placeholder={"Shop Password"}
+                customStyle={styles.inputStyle}
+                value={password}
+                onChangeText={(t) => setPassword(t)}
               />
             </View>
-            <MyButton title={"Add Store"} customStyle={styles.buttonStyle} />
+            <MyButton
+              onPress={createUser}
+              title={"Add Shop"}
+              customStyle={styles.buttonStyle}
+            />
           </View>
         </ScrollView>
       </SafeAreaView>

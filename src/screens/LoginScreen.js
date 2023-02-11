@@ -11,9 +11,6 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    console.log("admin".length === username.length);
-    console.log("admin".length === password.length);
-
     fetch("http://173.82.175.143:3000/admin/login", {
       method: "POST",
       headers: {
@@ -26,7 +23,6 @@ const LoginScreen = ({ navigation }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.status === "success") {
           navigation.navigate("AddScreen");
         } else {
@@ -59,7 +55,7 @@ const LoginScreen = ({ navigation }) => {
           <MyInput
             placeholder={"Password"}
             customStyle={styles.inputStyle}
-            // secureTextEntry={true}
+            secureTextEntry={true}
             value={password}
             onChangeText={(t) => setPassword(t)}
           />
