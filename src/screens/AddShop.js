@@ -7,6 +7,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Colors } from "../ui/Theme";
 import MyInput from "../components/MyInput";
 import MyButton from "../components/MyButton";
+import { apiService } from "../services/APIService";
 
 const AddShopScreen = () => {
   const [fullName, setFullName] = useState("");
@@ -15,22 +16,12 @@ const AddShopScreen = () => {
 
   const createUser = async () => {
     try {
-      const response = await fetch(
-        "http://173.82.175.143:3000/admin/create-user",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            fullName,
-            username,
-            password,
-          }),
-        }
-      );
+      const result = await apiService.createUser({
+        fullName,
+        username,
+        password,
+      });
 
-      const result = await response.json();
       if (result.status === "success") {
         Alert.alert("Success", "User created successfully");
       } else {

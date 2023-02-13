@@ -1,29 +1,38 @@
 import { Alert, Image, StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
+// import { AsyncStorage } from "react-native";
+import { _retrieveData, _storeData } from "../utils/utils";
+
 import MyInput from "../components/MyInput";
 import MyButton from "../components/MyButton";
 import { Colors } from "../ui/Theme";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { apiService } from "../services/APIService";
+import { authService } from "../services/authService";
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    const hydrate = async () => {
+      const token = await _retrieveData("token");
+      if (token) {
+        authService.setToken(token);
+        navigation.navigate("AddScreen");
+      }
+    };
+    hydrate();
+  }, []);
+
   const handleLogin = () => {
-    fetch("http://173.82.175.143:3000/admin/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
+    apiService
+      .login(username, password)
+      .then(async (data) => {
         if (data.status === "success") {
+          await _storeData("token", data.data.accessToken);
+          authService.setToken(data.data.accessToken);
           navigation.navigate("AddScreen");
         } else {
           Alert.alert("Error", "Invalid email or password");

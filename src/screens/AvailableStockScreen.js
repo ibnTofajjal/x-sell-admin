@@ -33,6 +33,7 @@ const AvailableStockScreen = () => {
               />
             </Pressable>
           </View>
+          <MyTitle title="Available Stock" />
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
