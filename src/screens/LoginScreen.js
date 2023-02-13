@@ -14,19 +14,29 @@ import { authService } from "../services/authService";
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const hydrate = async () => {
-      const token = await _retrieveData("token");
-      if (token) {
+      try {
+        const token = await _retrieveData("token");
+        if (!token) {
+          throw new Error("No token");
+        }
         authService.setToken(token);
         navigation.navigate("AddScreen");
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     hydrate();
   }, []);
 
   const handleLogin = () => {
+    setIsLoading(true);
+
     apiService
       .login(username, password)
       .then(async (data) => {
@@ -40,6 +50,9 @@ const LoginScreen = ({ navigation }) => {
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -70,7 +83,12 @@ const LoginScreen = ({ navigation }) => {
           />
           <MyButton
             title={"Login"}
-            customStyle={styles.buttonStyle}
+            disabled={isLoading}
+            customStyle={
+              isLoading
+                ? { ...styles.buttonStyle, backgroundColor: Colors.red }
+                : styles.buttonStyle
+            }
             onPress={handleLogin}
           />
         </View>

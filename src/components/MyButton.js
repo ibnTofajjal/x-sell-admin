@@ -2,12 +2,19 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Colors } from "../ui/Theme";
 
-const MyButton = ({ title, onPress, customStyle, customTextStyle }) => {
+const MyButton = ({
+  title,
+  onPress,
+  customStyle,
+  customTextStyle,
+  disabled,
+}) => {
   return (
     <TouchableOpacity
       style={[styles.buttonStyle, customStyle]}
       onPress={onPress}
       android_ripple={{ color: "#fff" }}
+      disabled={disabled}
     >
       <Text style={[styles.title, customTextStyle]}>{title}</Text>
     </TouchableOpacity>

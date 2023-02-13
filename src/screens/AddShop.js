@@ -9,12 +9,15 @@ import MyInput from "../components/MyInput";
 import MyButton from "../components/MyButton";
 import { apiService } from "../services/APIService";
 
-const AddShopScreen = () => {
+const AddShopScreen = ({ navigation }) => {
   const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const createUser = async () => {
+    setIsLoading(true);
+
     try {
       const result = await apiService.createUser({
         fullName,
@@ -22,13 +25,16 @@ const AddShopScreen = () => {
         password,
       });
 
-      if (result.status === "success") {
-        Alert.alert("Success", "User created successfully");
-      } else {
-        Alert.alert("Error", result.message);
+      if (result.status !== "success") {
+        throw new Error(result.message);
       }
+
+      // Alert.alert("Success", "User created successfully");
+      navigation.navigate("AddScreen");
     } catch (error) {
       Alert.alert("Error", error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -67,7 +73,12 @@ const AddShopScreen = () => {
             <MyButton
               onPress={createUser}
               title={"Add Shop"}
-              customStyle={styles.buttonStyle}
+              disabled={isLoading}
+              customStyle={
+                isLoading
+                  ? { ...styles.buttonStyle, backgroundColor: Colors.red }
+                  : styles.buttonStyle
+              }
             />
           </View>
         </ScrollView>
